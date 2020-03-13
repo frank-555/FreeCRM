@@ -9,47 +9,42 @@ import com.qa.crm.base.TestBase;
 import com.qa.crm.pages.Contacts;
 import com.qa.crm.pages.HomePage;
 import com.qa.crm.pages.LoginPage;
+import com.qa.crm.util.TestUtil;
 
-public class HomePageTest extends TestBase{
-	
+public class ContactsPageTest extends TestBase{
+
 	LoginPage loginpage;
 	HomePage homepage;
 	Contacts contacts;
+	TestUtil testutil;
 	
-	
-	public HomePageTest() {
+	public ContactsPageTest() {
 		super();
 	}
-	
-	//test cases should be independent
-	//before each test case -- launch the browser and login
-	//@test -- execute the testcase
-	//after each test -- close the browser
-	
 	
 	@BeforeMethod
 	public void setup() {
 	inizialization();
+	testutil = new TestUtil();
 	loginpage =  new LoginPage();
 	contacts = new Contacts();
 	homepage = loginpage.Login(prop.getProperty("username"), prop.getProperty("password"));
+	contacts = homepage.clickOnContactsLink();
+	
+	
 	}
 	
-	@Test(priority=1)
-	public void verifyHomePageTitleTest() {
-	 String HomePageTitle=homepage.verifyHomepageTitle();
-	 Assert.assertEquals(HomePageTitle, "Cogmento CRM");
+	@Test(priority = 1)
+	public void verifycontactspagelabel() {
+		Assert.assertTrue(contacts.VerifyContactsLabel(), "Contacts Label is Missing in the page");
 	}
 	
-	@Test(priority=2)
-	public void verifyHomePageUserName() {
-		Assert.assertTrue(homepage.displayCorrectUserName());
+	@Test(priority = 2)
+	public void selectContactsTest() {
+		contacts.SelectContacts();
+		
 	}
 	
-	@Test(priority=3)
-	public void VerifyContactsLinkTest() {
-		contacts = homepage.clickOnContactsLink();
-	}
 	
 	@AfterMethod
 	public void teatDown() {

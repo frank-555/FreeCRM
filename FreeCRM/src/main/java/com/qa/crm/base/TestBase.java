@@ -19,8 +19,7 @@ public class TestBase {
 	public TestBase() {
 		try{
 			prop= new Properties();
-			FileInputStream ip = new FileInputStream("C:\\Users\\jayakrishnan.k01\\eclipse-workspace\\Consumer\\FreeCRM\\src\\main\\java\\com\\qa\\crm"+
-			"\\config\\config.properties");
+			FileInputStream ip = new FileInputStream("C:\\Users\\jayakrishnan.k01\\git\\FreeCRM\\FreeCRM\\src\\main\\java\\com\\qa\\crm\\config\\config.properties");
 			prop.load(ip);
 			}
 

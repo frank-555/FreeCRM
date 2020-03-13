@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.qa.crm.testcases.HomePageTest">
+      <class name="com.qa.crm.testcases.ContactsPageTest">
         <methods>
-          <include name="verifyHomePageTitleTest"/>
-          <include name="setup"/>
           <include name="teatDown"/>
+          <include name="setup"/>
+          <include name="selectContactsTest"/>
+          <include name="verifycontactspagelabel"/>
         </methods>
-      </class> <!-- com.qa.crm.testcases.HomePageTest -->
+      </class> <!-- com.qa.crm.testcases.ContactsPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
